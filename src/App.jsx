@@ -30,9 +30,7 @@ export function App() {
         <Route exact path="/pets/:id">
           <Pet />
         </Route>
-        <Route exact path="/2">
-          Page 2
-        </Route>
+
         <Route path="*">Not Found</Route>
       </Switch>
     </>

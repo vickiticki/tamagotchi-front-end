@@ -26,7 +26,6 @@ export function Pet() {
 
   return (
     <>
-      <h1> here is a pet</h1>
       <h2>{pet.name}</h2>
       <dl>
         <dt>Birthday</dt>
@@ -36,6 +35,11 @@ export function Pet() {
         <dl>Hunger:</dl>
         <dt>{pet.hungerLevel}</dt>
       </dl>
+      <div className="interact buttons">
+        <button>Play</button>
+        <button>Feed</button>
+        <button>Scold</button>
+      </div>
       <Link to="/">Home</Link>
     </>
   )
