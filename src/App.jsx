@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { Home } from './components/Home'
+import { Pet } from './components/Pet'
 
 // https://eggfriend.herokuapp.com/api/Pets
 export function App() {
   return (
     <>
-      <header>
+      {/* <header>
         <h1>Welcome to my SPA</h1>
         <nav>
           <ul>
@@ -21,13 +22,13 @@ export function App() {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/1">
-          Page 1
+        <Route exact path="/pets/:id">
+          <Pet />
         </Route>
         <Route exact path="/2">
           Page 2
