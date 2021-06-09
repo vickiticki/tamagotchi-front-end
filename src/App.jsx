@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
+import { Home } from './components/Home'
 
 // https://eggfriend.herokuapp.com/api/Pets
 export function App() {
@@ -23,7 +24,7 @@ export function App() {
       </header>
       <Switch>
         <Route exact path="/">
-          Home
+          <Home />
         </Route>
         <Route exact path="/1">
           Page 1
