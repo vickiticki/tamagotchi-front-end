@@ -40,7 +40,9 @@ export function Pet() {
         <button>Feed</button>
         <button>Scold</button>
       </div>
-      <Link to="/">Home</Link>
+      <Link to="/" className="go home">
+        Home
+      </Link>
     </>
   )
 }

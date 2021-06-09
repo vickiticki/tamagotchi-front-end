@@ -30,6 +30,7 @@ export function Home() {
           </li>
         ))}
       </ul>
+      <button className="make pet">Make a Pet</button>
     </>
   )
 }
