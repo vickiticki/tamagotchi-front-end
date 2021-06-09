@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export function Home() {
   const [pets, setPets] = useState([])
+  const [newName, setNewName] = useState('')
 
   useEffect(function () {
     async function loadPets() {
@@ -18,19 +19,49 @@ export function Home() {
     }
     loadPets()
   }, [])
+  // function to sort by name
+  function sortPets(names) {
+    names.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1
+      }
+      return 0
+    })
+  }
 
+  // here is the function to make a new pet
+  function newPet() {
+    if (newName === '') {
+      console.log('oops')
+      return
+    }
+    console.log('hello ' + newName)
+  }
   return (
     <>
       <h1>Pets</h1>
       <p>Click a pet to see more information</p>
       <ul className="pet list">
+        {/* sort by name */}
+        {sortPets(pets)}
         {pets.map(pet => (
           <li key={pet.id} className="pet">
             <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
           </li>
         ))}
       </ul>
-      <button className="make pet">Make a Pet</button>
+      {/* make new pet */}
+      <input
+        type="text"
+        id="huh"
+        onChange={event => setNewName(event.target.value)}
+      />
+      <button className="make pet" onClick={newPet}>
+        Make a Pet
+      </button>
     </>
   )
 }
