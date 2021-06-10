@@ -46,6 +46,16 @@ export function Pet() {
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/scoldings`
     )
   }
+  function DeletePet() {
+    axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${params.id}`)
+
+    //go to home
+    //this just sends it home without deleting
+    // GoHome()
+  }
+  function GoHome() {
+    window.location.href = '/'
+  }
 
   return (
     <>
@@ -64,7 +74,7 @@ export function Pet() {
         <button onClick={Scolding}>Scold</button>
       </div>
 
-      <button>Delete Pet</button>
+      <button onClick={DeletePet}>Delete Pet</button>
       <div className="go home">
         <Link to="/" className="go home">
           Home
