@@ -63,9 +63,13 @@ export function Pet() {
         <button onClick={Feeding}>Feed</button>
         <button onClick={Scolding}>Scold</button>
       </div>
-      <Link to="/" className="go home">
-        Home
-      </Link>
+
+      <button>Delete Pet</button>
+      <div className="go home">
+        <Link to="/" className="go home">
+          Home
+        </Link>
+      </div>
     </>
   )
 }
