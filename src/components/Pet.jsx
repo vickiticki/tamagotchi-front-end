@@ -26,6 +26,7 @@ export function Pet() {
   const history = useHistory()
   const params = useParams()
   const picture = `picture no${pet.id % 8}`
+  const bday = pet.birthday.slice(0, 10)
 
   useEffect(() => {
     axios
@@ -85,7 +86,9 @@ export function Pet() {
       <dl>
         <dt>Birthday:</dt>
         <dl>
-          <time>{format(new Date(pet.birthday), dateFormat)}</time>
+          {/* <time>{format(new Date(pet.birthday), dateFormat)}</time> */}
+          {/* that was weird when I deployed the site so whatever hopefully this works better */}
+          {bday}
         </dl>
         <dt>Happiness:</dt>
         <dl>{pet.happinessLevel}</dl>
