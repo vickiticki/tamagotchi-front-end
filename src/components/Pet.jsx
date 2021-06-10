@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 
 export function Pet() {
   const [pet, setPet] = useState({
@@ -20,11 +20,12 @@ export function Pet() {
   //   petId: pet.id,
   //   pet: pet,
   // })
-
+  const history = useHistory()
   const params = useParams()
 
   useEffect(() => {
     axios
+      // @ts-ignore
       .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
       .then(response => {
         setPet(response.data)
@@ -47,10 +48,12 @@ export function Pet() {
     )
   }
   function DeletePet() {
-    axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${params.id}`)
+    axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${pet.id}`)
+    axios.get(`https://eggfriend.herokuapp.com/api/Pets`)
+    history.push('/')
 
     //go to home
-    //this just sends it home without deleting
+    //this just sends it home without deleting?
     // GoHome()
   }
   function GoHome() {

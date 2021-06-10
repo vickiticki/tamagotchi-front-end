@@ -5,11 +5,12 @@ import axios from 'axios'
 export function Home() {
   const [pets, setPets] = useState([])
   const [newName, setNewName] = useState('')
+  const [holder, setHolder] = useState('Name')
 
   useEffect(function () {
     async function loadPets() {
       const response = await axios.get(
-        'https://eggfriend.herokuapp.com/api/pets/'
+        'https://eggfriend.herokuapp.com/api/pets'
       )
 
       if (response.status === 200) {
@@ -19,6 +20,7 @@ export function Home() {
     }
     loadPets()
   }, [])
+
   // function to sort by name
   function sortPets(names) {
     names.sort(function (a, b) {
@@ -33,13 +35,23 @@ export function Home() {
   }
 
   // here is the function to make a new pet
-  function newPet() {
+  async function newPet() {
     if (newName === '') {
       console.log('oops')
       return
     }
     console.log('hello ' + newName)
+    axios.post(`https://eggfriend.herokuapp.com/api/pets`, {
+      name: `${newName}`,
+    })
+    const refresh = await axios.get('https://eggfriend.herokuapp.com/api/pets')
+    setPets(refresh.data)
+
+    setNewName('')
+    setHolder('Name')
+    // location.reload()
   }
+
   return (
     <>
       <h1>Pets</h1>
@@ -57,6 +69,8 @@ export function Home() {
       <input
         type="text"
         id="huh"
+        placeholder={holder}
+        value={newName}
         onChange={event => setNewName(event.target.value)}
       />
       <button className="make pet" onClick={newPet}>
