@@ -55,6 +55,7 @@ export function Home() {
   return (
     <>
       <h1>卵友達 </h1>
+      <p className="translation">(Egg Friend)</p>
       <p>Click a pet to see more information</p>
       <ul className="pet list">
         {/* sort by name */}
