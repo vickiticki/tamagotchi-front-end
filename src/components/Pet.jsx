@@ -8,7 +8,7 @@ export function Pet() {
   const [pet, setPet] = useState({
     id: 0,
     name: '',
-    birthday: '1990-01-14',
+    birthday: '',
     hungerLevel: 0,
     happinessLevel: 0,
     playtimes: null,
