@@ -80,21 +80,22 @@ export function Pet() {
     <>
       <div className="pet intro">
         <h2>{pet.name}</h2>
+      </div>
+      <div className="pet facts">
+        <dl>
+          <dt>Birthday:</dt>
+          <dl>
+            {/* <time>{format(new Date(pet.birthday), dateFormat)}</time> */}
+            {/* that was weird when I deployed the site so whatever hopefully this works better */}
+            {bday}
+          </dl>
+          <dt>Happiness:</dt>
+          <dl>{pet.happinessLevel}</dl>
+          <dl>Hunger:</dl>
+          <dt>{pet.hungerLevel}</dt>
+        </dl>
         <div className={picture}></div>
       </div>
-
-      <dl>
-        <dt>Birthday:</dt>
-        <dl>
-          {/* <time>{format(new Date(pet.birthday), dateFormat)}</time> */}
-          {/* that was weird when I deployed the site so whatever hopefully this works better */}
-          {bday}
-        </dl>
-        <dt>Happiness:</dt>
-        <dl>{pet.happinessLevel}</dl>
-        <dl>Hunger:</dl>
-        <dt>{pet.hungerLevel}</dt>
-      </dl>
       <div className="interact buttons">
         <button onClick={Playtime}>Play</button>
         <button onClick={Feeding}>Feed</button>
