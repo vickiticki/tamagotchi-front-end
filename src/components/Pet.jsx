@@ -1,12 +1,14 @@
 import axios from 'axios'
+// import { format } from 'prettier'
 import { useEffect, useState } from 'react'
 import { Link, useParams, useHistory } from 'react-router-dom'
+import format from 'date-fns/format'
 
 export function Pet() {
   const [pet, setPet] = useState({
     id: 0,
     name: '',
-    birthday: '',
+    birthday: '1990-01-14',
     hungerLevel: 0,
     happinessLevel: 0,
     playtimes: null,
@@ -20,6 +22,7 @@ export function Pet() {
   //   petId: pet.id,
   //   pet: pet,
   // })
+  const dateFormat = 'MMMM do, yyyy'
   const history = useHistory()
   const params = useParams()
 
@@ -30,7 +33,7 @@ export function Pet() {
       .then(response => {
         setPet(response.data)
       })
-  }, [pet])
+  }, [params.id])
 
   function Playtime() {
     axios.post(
@@ -42,22 +45,15 @@ export function Pet() {
     axios.post(`https://eggfriend.herokuapp.com/api/Pets/${params.id}/feedings`)
   }
 
-  function Scolding() {
+  function scolding() {
     axios.post(
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/scoldings`
     )
   }
-  function DeletePet() {
-    axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${pet.id}`)
-    axios.get(`https://eggfriend.herokuapp.com/api/Pets`)
-    history.push('/')
+  async function deletePet() {
+    await axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${params.id}`)
 
-    //go to home
-    //this just sends it home without deleting?
-    // GoHome()
-  }
-  function GoHome() {
-    window.location.href = '/'
+    history.push('/')
   }
 
   return (
@@ -65,7 +61,9 @@ export function Pet() {
       <h2>{pet.name}</h2>
       <dl>
         <dt>Birthday</dt>
-        <dl>{pet.birthday}</dl>
+        <dl>
+          <time>{format(new Date(pet.birthday), dateFormat)}</time>
+        </dl>
         <dt>Happiness:</dt>
         <dl>{pet.happinessLevel}</dl>
         <dl>Hunger:</dl>
@@ -74,10 +72,10 @@ export function Pet() {
       <div className="interact buttons">
         <button onClick={Playtime}>Play</button>
         <button onClick={Feeding}>Feed</button>
-        <button onClick={Scolding}>Scold</button>
+        <button onClick={scolding}>Scold</button>
       </div>
 
-      <button onClick={DeletePet}>Delete Pet</button>
+      <button onClick={deletePet}>Delete Pet</button>
       <div className="go home">
         <Link to="/" className="go home">
           Home

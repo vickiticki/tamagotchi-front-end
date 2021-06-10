@@ -12,11 +12,11 @@ export function Home() {
       const response = await axios.get(
         'https://eggfriend.herokuapp.com/api/pets'
       )
-
-      if (response.status === 200) {
-        setPets(response.data)
-        console.log(pets)
-      }
+      setPets(response.data)
+      // if (response.status === 200) {
+      //   setPets(response.data)
+      //   console.log(pets)
+      // }
     }
     loadPets()
   }, [])
