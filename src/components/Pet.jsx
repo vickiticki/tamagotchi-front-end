@@ -14,6 +14,13 @@ export function Pet() {
     scoldings: null,
   })
 
+  // const [playtimes, setPlaytimes] = useState({
+  //   id: null,
+  //   when: '',
+  //   petId: pet.id,
+  //   pet: pet,
+  // })
+
   const params = useParams()
 
   useEffect(() => {
@@ -22,7 +29,23 @@ export function Pet() {
       .then(response => {
         setPet(response.data)
       })
-  }, [])
+  }, [pet])
+
+  function Playtime() {
+    axios.post(
+      `https://eggfriend.herokuapp.com/api/Pets/${params.id}/playtimes`
+    )
+    console.log('play')
+  }
+  function Feeding() {
+    axios.post(`https://eggfriend.herokuapp.com/api/Pets/${params.id}/feedings`)
+  }
+
+  function Scolding() {
+    axios.post(
+      `https://eggfriend.herokuapp.com/api/Pets/${params.id}/scoldings`
+    )
+  }
 
   return (
     <>
@@ -36,9 +59,9 @@ export function Pet() {
         <dt>{pet.hungerLevel}</dt>
       </dl>
       <div className="interact buttons">
-        <button>Play</button>
-        <button>Feed</button>
-        <button>Scold</button>
+        <button onClick={Playtime}>Play</button>
+        <button onClick={Feeding}>Feed</button>
+        <button onClick={Scolding}>Scold</button>
       </div>
       <Link to="/" className="go home">
         Home
