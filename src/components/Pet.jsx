@@ -9,8 +9,8 @@ export function Pet() {
     id: 0,
     name: '',
     birthday: '',
-    hungerLevel: 0,
-    happinessLevel: 0,
+    hungerLevel: null,
+    happinessLevel: null,
     playtimes: null,
     feedings: null,
     scoldings: null,
@@ -31,7 +31,7 @@ export function Pet() {
   useEffect(() => {
     axios
       // @ts-ignore
-      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .get(`https://eggfriend.herokuapp.com/api/pets/${params.id}`)
       .then(response => {
         setPet(response.data)
       })
@@ -43,7 +43,7 @@ export function Pet() {
     )
 
     await axios
-      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .get(`https://eggfriend.herokuapp.com/api/pets/${params.id}`)
       .then(response => {
         setPet(response.data)
       })
@@ -54,7 +54,7 @@ export function Pet() {
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/feedings`
     )
     await axios
-      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .get(`https://eggfriend.herokuapp.com/api/pets/${params.id}`)
       .then(response => {
         setPet(response.data)
       })
@@ -65,7 +65,7 @@ export function Pet() {
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/scoldings`
     )
     await axios
-      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .get(`https://eggfriend.herokuapp.com/api/pets/${params.id}`)
       .then(response => {
         setPet(response.data)
       })
