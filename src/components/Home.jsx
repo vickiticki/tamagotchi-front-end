@@ -56,16 +56,19 @@ export function Home() {
     <>
       <h1>卵友達 </h1>
       <p className="translation">(Egg Friend)</p>
-      <p>Click a pet to see more information</p>
-      <ul className="pet list">
-        {/* sort by name */}
-        {sortPets(pets)}
-        {pets.map(pet => (
-          <li key={pet.id} className="pet">
-            <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <p>Click a name to crack the egg</p>
+      <div className="choose something">
+        <ul className="pet list">
+          {/* sort by name */}
+          {sortPets(pets)}
+          {pets.map(pet => (
+            <li key={pet.id} className="pet">
+              <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className="egg picture"></div>
+      </div>
       {/* make new pet */}
       <input
         type="text"
