@@ -25,6 +25,7 @@ export function Pet() {
   const dateFormat = 'MMMM do, yyyy'
   const history = useHistory()
   const params = useParams()
+  const picture = `img no${pet.id % 8}`
 
   useEffect(() => {
     axios
@@ -35,20 +36,38 @@ export function Pet() {
       })
   }, [params.id])
 
-  function Playtime() {
-    axios.post(
+  async function Playtime() {
+    await axios.post(
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/playtimes`
     )
+
+    await axios
+      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .then(response => {
+        setPet(response.data)
+      })
     console.log('play')
   }
-  function Feeding() {
-    axios.post(`https://eggfriend.herokuapp.com/api/Pets/${params.id}/feedings`)
+  async function Feeding() {
+    await axios.post(
+      `https://eggfriend.herokuapp.com/api/Pets/${params.id}/feedings`
+    )
+    await axios
+      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .then(response => {
+        setPet(response.data)
+      })
   }
 
-  function scolding() {
-    axios.post(
+  async function scolding() {
+    await axios.post(
       `https://eggfriend.herokuapp.com/api/Pets/${params.id}/scoldings`
     )
+    await axios
+      .get(`http://eggfriend.herokuapp.com/api/pets/${params.id}`)
+      .then(response => {
+        setPet(response.data)
+      })
   }
   async function deletePet() {
     await axios.delete(`https://eggfriend.herokuapp.com/api/Pets/${params.id}`)
@@ -58,7 +77,11 @@ export function Pet() {
 
   return (
     <>
-      <h2>{pet.name}</h2>
+      <div className="pet introduction">
+        <div className={picture}></div>
+        <h2>{pet.name}</h2>
+      </div>
+
       <dl>
         <dt>Birthday</dt>
         <dl>

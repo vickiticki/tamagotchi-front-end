@@ -41,7 +41,7 @@ export function Home() {
       return
     }
     console.log('hello ' + newName)
-    axios.post(`https://eggfriend.herokuapp.com/api/pets`, {
+    await axios.post(`https://eggfriend.herokuapp.com/api/pets`, {
       name: `${newName}`,
     })
     const refresh = await axios.get('https://eggfriend.herokuapp.com/api/pets')

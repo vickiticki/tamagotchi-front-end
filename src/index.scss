@@ -34,3 +34,64 @@ h2 {
 .home {
   margin-top: 30px;
 }
+.introduction {
+  display: flex;
+  flex-direction: column;
+}
+//pictures
+.no1 {
+  height: 180px;
+  background: url('./images/img1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no2 {
+  height: 180px;
+  background: url('./images/img2.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no3 {
+  height: 180px;
+  background: url('./images/img3.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no4 {
+  height: 180px;
+  background: url('./images/img4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no5 {
+  height: 180px;
+  background: url('./images/img5.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no6 {
+  height: 180px;
+  background: url('./images/img6.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no7 {
+  height: 180px;
+  background: url('./images/img7.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.no0 {
+  height: 180px;
+  background: url('./images/img0.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
