@@ -54,7 +54,7 @@ export function Home() {
 
   return (
     <>
-      <h1>卵友達 </h1>
+      <h1>卵の友達 </h1>
       <p className="translation">(Egg Friend)</p>
       <p>Click a name to crack the egg</p>
       <div className="choose something">

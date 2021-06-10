@@ -35,6 +35,7 @@ h1 {
   height: 300px;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 .something {
   display: grid;
@@ -54,6 +55,7 @@ h2 {
 .facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
 }
 dl {
   display: grid;
@@ -75,57 +77,32 @@ dl {
 //pictures
 
 .no1 {
-  height: 180px;
   background: url('./images/img1.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no2 {
-  height: 180px;
   background: url('./images/img2.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no3 {
-  height: 180px;
   background: url('./images/img3.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no4 {
-  height: 180px;
   background: url('./images/img4.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no5 {
-  height: 180px;
   background: url('./images/img5.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no6 {
-  height: 180px;
   background: url('./images/img6.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no7 {
-  height: 180px;
   background: url('./images/img7.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .no0 {
-  height: 180px;
   background: url('./images/img0.jpg');
+}
+
+.picture {
+  height: 220px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
