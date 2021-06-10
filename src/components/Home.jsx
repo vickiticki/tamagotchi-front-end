@@ -54,7 +54,7 @@ export function Home() {
 
   return (
     <>
-      <h1>Pets</h1>
+      <h1>卵友達 </h1>
       <p>Click a pet to see more information</p>
       <ul className="pet list">
         {/* sort by name */}

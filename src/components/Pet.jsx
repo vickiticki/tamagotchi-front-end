@@ -25,7 +25,7 @@ export function Pet() {
   const dateFormat = 'MMMM do, yyyy'
   const history = useHistory()
   const params = useParams()
-  const picture = `img no${pet.id % 8}`
+  const picture = `picture no${pet.id % 8}`
 
   useEffect(() => {
     axios
@@ -77,13 +77,13 @@ export function Pet() {
 
   return (
     <>
-      <div className="pet introduction">
-        <div className={picture}></div>
+      <div className="pet intro">
         <h2>{pet.name}</h2>
+        <div className={picture}></div>
       </div>
 
       <dl>
-        <dt>Birthday</dt>
+        <dt>Birthday:</dt>
         <dl>
           <time>{format(new Date(pet.birthday), dateFormat)}</time>
         </dl>

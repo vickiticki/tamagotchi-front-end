@@ -22,11 +22,22 @@ a:visited {
 
 h1 {
   text-align: center;
+  padding-top: 3rem;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 10px;
 }
 h2 {
   color: fuchsia;
+  text-align: center;
 }
-
+dl {
+  display: grid;
+  grid-template-columns: 90px 200px;
+}
 .interact {
   margin-bottom: 20px;
 }
@@ -34,11 +45,14 @@ h2 {
 .home {
   margin-top: 30px;
 }
-.introduction {
+.intro {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 3rem;
 }
 //pictures
+
 .no1 {
   height: 180px;
   background: url('./images/img1.jpg');
