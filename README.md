@@ -11,5 +11,3 @@ There were two parts to this assignment:
 Users can play with, feed, or scold pets, as well as create and delete pets. Playing, feeding, and scolding affects the happiness and hunger of pets.
 
 The front end was done in javascript using React (with hooks) and axios.
-
-[Check it out!](https://tamagotchi-front-end-victoriatiller.netlify.app/)
